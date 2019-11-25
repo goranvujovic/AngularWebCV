@@ -1,13 +1,142 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>CvApp</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+	<head>
+		<meta charset="utf-8">
+		<title>Goran Vujovic CV</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="/assets/json/lottie.js"></script>
+		<script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>  
+		<!-- form test -->
+		  <script type="text/javascript">
+			function validateContactForm() {
+			    var valid = true;
+
+			    $(".info").html("");
+			    $(".input-field").css('border', '#e0dfdf 1px solid');
+			    var userName = $("#userName").val();
+			    var userEmail = $("#userEmail").val();
+			    var phone = $("#phone").val();
+			    var reason = $("#reason").val();
+			    var message = $("#message").val();
+			    
+			    if (userName == "") {
+			        $("#userName-info").html("Required.");
+			        $("#userName").css('border', '#e66262 1px solid');
+			        valid = false;
+			    }
+			    if (!userName.match(/^[0-9]?$/)) {
+			        $("#userName-info").html("Please don't use numbers.");
+			        $("#userName").css('border', '#e66262 1px solid');
+			        valid = false;
+			    }
+			    if (!userName.match(/^([A-Za-z\s]{4,30})?$/))
+			    {
+			        $("#userEmail-info").html("Invalid User Name.");
+			        $("#userEmail").css('border', '#e66262 1px solid');
+			        valid = false;
+			    }
+			    if (userEmail == "") {
+			        $("#userEmail-info").html("Required.");
+			        $("#userEmail").css('border', '#e66262 1px solid');
+			        valid = false;
+			    }
+			    if (!userEmail.match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/))
+			    {
+			        $("#userEmail-info").html("Invalid Email Address.");
+			        $("#userEmail").css('border', '#e66262 1px solid');
+			        valid = false;
+			    }
+
+			    if (phone == 0) {
+			        $("#phone-info").html("Required.");
+			        $("#phone").css('border', '#e66262 1px solid');
+			        valid = false;
+			    }
+			    if (!phone == (/^(\d{+\3}[+|(+) 0-9]{3}-[0-9]{3}-[0-9]{4})?$/))
+			    {
+			        $("#phone-info").html("Invalid Phone Number.");
+			        $("#phone").css('border', '#e66262 1px solid');
+			        valid = false;
+			    }
+			    if (reason == "") {
+			        $("#reason-info").html("Required.");
+			        $("#reason").css('border', '#e66262 1px solid');
+			        valid = false;
+			    }
+			    if (message == "") {
+			        $("#message-info").html("Please type your message.");
+			        $("#message").css('border', '#e66262 1px solid');
+			        valid = false;
+			    }
+			    return valid;
+			}
+		  </script>
+	</head>
+	
+	<body style="background-color: #343a40;">
+		<base href="/">
+		<!-- Top Navigation -->
+		  <div class="container" > 
+		    <div class="col-lg-12">
+		      <nav id="navbar-example2" class="navbar navbar-dark bg-dark">
+		      </nav>
+		      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+		        <button class="navbar-toggler" type="button" aria-controls="navbarContent" [attr.aria-expanded]="!collapsed" aria-label="Toggle navigation" (click)="collapsed = !collapsed">
+		          <span class="navbar-toggler-icon"></span>
+		        </button>
+		      <a class="navbar-brand" href="#">Goran Vujovic CV</a>
+		      <div class="navbar-collapse" [class.collapse]="!collapsed" id="navbarContent" >
+		        <ul class="navbar-nav ml-auto" >
+		          <li class="nav-item" ngbDropdown >
+		            <a class="nav-link" style="cursor: pointer" ngbDropdownToggle id="navbarDropdown1" role="button">
+		              <a class="nav-link" href="#intro">Introduction</a>
+		            </a>
+		          </li>
+
+		          <li class="nav-item" ngbDropdown>
+		            <a class="nav-link" style="cursor: pointer" ngbDropdownToggle id="navbarDropdown2" role="button">
+		              <a class="nav-link" href="#currProjects">Current Projects</a>
+		            </a>
+		          </li>
+
+		          <li class="nav-item" ngbDropdown>
+		            <a class="nav-link" style="cursor: pointer" ngbDropdownToggle id="navbarDropdown2" role="button">
+		              <a class="nav-link" href="#exp">Experience</a>
+		            </a>
+		          </li>
+
+		          <li class="nav-item" ngbDropdown>
+		            <a class="nav-link" style="cursor: pointer" ngbDropdownToggle id="navbarDropdown2" role="button">
+		              <a class="nav-link" href="#contact">Contact</a>
+		            </a>
+		          </li>
+		        </ul>
+		      </div>
+		      </nav>
+		    </div>
+		  </div>
+		<!-- Logo Div-->  
+			<div onclick="animationFunction()" id="amin" style="width: 400px; margin-left: 120px">
+				<script type="text/javascript">
+			    //alert('Pre Animaition Test');
+			    var timer;
+			    function animationFunction() {
+					var animation = bodymovin.loadAnimation({
+				    container:document.getElementById('amin'),
+				    renderer:'svg',
+				    //either true or false or number of times :)
+				    loop:2,
+				    autoplay:true,//plus one loop
+				    //path must have data.json
+				    path:'assets/json/data.json'
+			 	 })	
+				}
+				timer = setTimeout(animationFunction, 1000);
+				clearTimeout();
+				</script>
+		 	</div>	
+		<app-root></app-root>
+	</body>
 </html>

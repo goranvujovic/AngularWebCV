@@ -19,8 +19,15 @@
     "@angular/platform-browser": "~8.2.8",
     "@angular/platform-browser-dynamic": "~8.2.8",
     "@angular/router": "~8.2.8",
+    "@types/jquery": "^3.3.31",
+    "generator-angular-php": "^0.6.3",
+    "jquery": "^3.4.1",
+    "lottie-web": "^5.5.9",
+    "ngx-youtube-player": "^7.1.1",
+    "php": "0.0.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
+    "typings": "^2.1.1",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
